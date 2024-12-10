@@ -1,3 +1,3 @@
 public class Basar {
-    int x = 1234567;
+    int x = 123456789;
 }
