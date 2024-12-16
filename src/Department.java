@@ -20,7 +20,7 @@ public class Department {
     public void addStudent(String name) {
         students.add(name);
     }
-    public void assignInstrcutorToCourse(String instructorName, String courseName) {
+    public void assignInstructorToCourse(String instructorName, String courseName) {
         for(int course = 0; course < courses.size(); course++){
             if(courses.get(course).getName() == courseName) {
                 courses.get(course).setInstructor(instructorName);
