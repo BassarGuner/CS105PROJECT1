@@ -30,8 +30,8 @@ public class Department {
     }
 
     public void createCourse(String courseId, String courseName) {
-        Course newCourse = new Course(courseId, courseName);
-        courses.add(newCourse);
+        // Course newCourse = new Course(courseId, courseName);
+        courses.add(new Course(courseId, courseName));
         for (int course = 0; course < courses.size(); course++) {
             if(courses.get(course).getId() == courseId && courses.get(course).getInstructor() == null) {
                 System.out.println("Course " + courseId + " has no instructor " +
