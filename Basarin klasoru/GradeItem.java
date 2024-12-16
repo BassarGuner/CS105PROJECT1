@@ -4,9 +4,7 @@ public class GradeItem {
     private int grade;
     
     
-    public GradeItem() {
-
-
+    public GradeItem(String courseId, String examId, int grade) {
         this.courseId = courseId;
         this.examId = examId;
         this.grade = grade;
@@ -27,7 +25,7 @@ public class GradeItem {
 
     @Override
     public String toString(){
-        return "";
+        return "Course ID : " + courseId + "\n" + "Exam ID : " + examId + "\n" + "Grade : " + grade;
     }
     
 }

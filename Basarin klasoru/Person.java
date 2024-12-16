@@ -31,10 +31,9 @@ abstract class Person {
         String initial = parts[0].substring(0,1) + parts[parts.length-1].substring(0,1);
         return initial + String.format("%04d", idcount++);
     }
-
     @Override
     public String toString(){
-            return "";
+            return "Name : " + name + "\n" + "ID : " + id + "\n" + "Email : " + email;
         
     }
 }
