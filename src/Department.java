@@ -6,7 +6,7 @@ public class Department {
 
     private String name;
     /*
-    private ArrayList<Course> courses;
+    private ArrayList<Course> courses;           // kodların hepsi teorik suan nesneler oluşmadığı için
     private ArrayList<Instructor> instructors;
     private ArrayList<Student> students;
      */
@@ -20,12 +20,31 @@ public class Department {
     public void addStudent(String name) {
         students.add(name);
     }
+    public void assignInstrcutorToCourse(String instructorName, String courseName) {
+        for(int course = 0; course < courses.size(); course++){
+            if(courses.get(course).getName() == courseName) {
+                courses.get(course).setInstructor(instructorName);
+            }
+        }
+
+    }
+
+    public void createCourse(String courseId, String courseName) {
+        Course newCourse = new Course(courseId, courseName);
+        courses.add(newCourse);
+        for (int course = 0; course < courses.size(); course++) {
+            if(courses.get(course).getId() == courseId && courses.get(course).getInstructor() == null) {
+                System.out.println("Course " + courseId + " has no instructor " +
+                         " wont be able to allow any enrollments.");
+            }
+        }
+    }
 
     public ArrayList<Instructor> getInstructors(){
         return instructors;
     }
     public Course getCourse(String courseName) {
-        Course courseFound;
+        Course courseFound = null;
         for(int course = 0; course < courses.size(); course++) {
             if(courses.get(course).getName() == courseName){
                 courseFound = courses.get(course);
