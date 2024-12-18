@@ -26,7 +26,7 @@ public class Meltem {
 
     // Method 2 - Remove a student from the course
     public void removeStudent(Student student) {
-        if ()
+        if () // if elseler
     }
 
     }
