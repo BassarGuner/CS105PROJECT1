@@ -185,7 +185,7 @@ class StudentDashboard {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 400);
 
-        JPanel panel = new JPanel(new GridLayout(5, 1));
+        JPanel panel = new JPanel(new GridLayout(6, 1));
         panel.add(new JLabel("Welcome, " + student.getName()));
         panel.add(new JLabel("ID: " + student.getId()));
         panel.add(new JLabel("Email: " + student.getEmail()));
@@ -193,10 +193,12 @@ class StudentDashboard {
         JButton registerCourseButton = new JButton("Register to Course");
         JButton dropCourseButton = new JButton("Drop Course");
         JButton listGradesButton = new JButton("List Grades");
+        JButton logoutButton = new JButton("Logout");
 
         panel.add(registerCourseButton);
         panel.add(dropCourseButton);
         panel.add(listGradesButton);
+        panel.add(logoutButton);
 
         registerCourseButton.addActionListener(e -> {
             String courseId = JOptionPane.showInputDialog("Enter Course ID:");
@@ -225,7 +227,10 @@ class StudentDashboard {
             }
             JOptionPane.showMessageDialog(frame, grades.toString());
         });
-
+        logoutButton.addActionListener(e -> {
+            frame.dispose();
+            new LoginHandler(department).showLoginScreen();
+        });
         frame.add(panel);
         frame.setVisible(true);
     }
@@ -237,16 +242,18 @@ class InstructorDashboard {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 400);
 
-        JPanel panel = new JPanel(new GridLayout(5, 1));
+        JPanel panel = new JPanel(new GridLayout(6, 1));
         panel.add(new JLabel("Welcome, " + instructor.getName()));
         panel.add(new JLabel("ID: " + instructor.getId()));
         panel.add(new JLabel("Email: " + instructor.getEmail()));
 
         JButton registerExamGradesButton = new JButton("Register Exam Grades");
         JButton listGradesButton = new JButton("List Grades for Exam");
+        JButton logoutButton = new JButton("Logout");
 
         panel.add(registerExamGradesButton);
         panel.add(listGradesButton);
+        panel.add(logoutButton);
 
         registerExamGradesButton.addActionListener(e -> {
             String courseId = JOptionPane.showInputDialog("Enter Course ID:");
@@ -269,7 +276,10 @@ class InstructorDashboard {
                 JOptionPane.showMessageDialog(frame, "Course not found.");
             }
         });
-
+        logoutButton.addActionListener(e -> {
+            frame.dispose();
+            new LoginHandler(department).showLoginScreen();
+        });
         frame.add(panel);
         frame.setVisible(true);
     }
@@ -281,7 +291,7 @@ class DepartmentDashboard {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 400);
 
-        JPanel panel = new JPanel(new GridLayout(6, 1));
+        JPanel panel = new JPanel(new GridLayout(7, 1));
         panel.add(new JLabel("Department: " + department.toString()));
 
         JButton listCoursesButton = new JButton("List All Courses");
@@ -289,12 +299,14 @@ class DepartmentDashboard {
         JButton listInstructorsButton = new JButton("List All Instructors");
         JButton createCourseButton = new JButton("Create New Course");
         JButton assignInstructorButton = new JButton("Assign Instructor to Course");
+        JButton logoutButton = new JButton("Logout");
 
         panel.add(listCoursesButton);
         panel.add(listStudentsButton);
         panel.add(listInstructorsButton);
         panel.add(createCourseButton);
         panel.add(assignInstructorButton);
+        panel.add(logoutButton);
 
         listCoursesButton.addActionListener(e -> {
             StringBuilder courses = new StringBuilder("Courses:\n");
@@ -341,7 +353,10 @@ class DepartmentDashboard {
                 JOptionPane.showMessageDialog(frame, "Invalid input.");
             }
         });
-
+        logoutButton.addActionListener(e -> {
+            frame.dispose();
+            new LoginHandler(department).showLoginScreen();
+        });
         frame.add(panel);
         frame.setVisible(true);
     }

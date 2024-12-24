@@ -21,15 +21,15 @@ public class Student extends Person {
             System.out.println("Name must contain both first and last name for email generation.");
             setEmail(null);
         } else{
-        setEmail(parts[0] + "." + parts[parts.length - 1] + "@ozyegin.edu.tr");
+        setEmail(parts[0] + "." + parts[parts.length - 1] + "@ozu.edu.tr");
         }
     }
 
     public void registerToCourse(Course course) {
-        if (course.getInstructor() != null) {                          // düzelttim
-            enrolledCourses.put(course.getId(), course);               // getCourseId yok
+        if (course.getInstructor() != null) {                       
+            enrolledCourses.put(course.getId(), course);               
             course.addStudent(this);
-            System.out.println("Registered to course: " + course.getCourseName()); // getName olcak getCourseName yok
+            System.out.println("Registered to course: " + course.getCourseName()); 
         } else {
             System.out.println("Cannot register, no instructor assigned to course.");
         }
