@@ -84,6 +84,7 @@ public class Department {
             System.out.println(instructors.get(instructor).getName());
             counter++;
         }
+        System.out.println("Total number of instructors: " + counter);
     }
 
     public void listCourses(){
@@ -92,6 +93,7 @@ public class Department {
             System.out.println(courses.get(course).getName());
             counter++;
         }
+        System.out.println("Total number of courses: " + counter);
     }
 
     public void listStudents(){
@@ -100,6 +102,7 @@ public class Department {
             System.out.println(students.get(student).getName());
             counter++;
         }
+        System.out.println("Total students: " + counter);
     }
 
     public String toString() {
