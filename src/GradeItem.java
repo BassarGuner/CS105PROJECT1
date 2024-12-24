@@ -1,9 +1,11 @@
+package src;
+
 public class GradeItem {
     private String courseId;
     private String examId;
     private int grade;
-    
-    
+
+
     public GradeItem(String courseId, String examId, int grade) {
         this.courseId = courseId;
         this.examId = examId;
@@ -27,5 +29,5 @@ public class GradeItem {
     public String toString(){
         return "Course ID : " + courseId + "\n" + "Exam ID : " + examId + "\n" + "Grade : " + grade;
     }
-    
-}
+
+} 
