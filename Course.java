@@ -1,14 +1,14 @@
 import java.util.ArrayList;
 
-public class Meltem {
+public class Course {
     // Attributes
     private String id;
     private String name;
-    private Instructor instructor; // Instructor bir class aslında o classı sonra yapçam
+    private Instructor instructor;
     private ArrayList<Student> students;
 
     // Constructor
-    public Meltem (String courseID, String courseName) {
+    public Course(String courseID, String courseName) {
         id = courseID; // this kullansam daha mı anlaşılır olurdu?
         name = courseName;
         students = new ArrayList<>(); // başta öğrenci boş liste
