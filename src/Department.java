@@ -12,11 +12,11 @@ public class Department {
         this.name = name;
         this.courses = new ArrayList<>();
         this.instructors = new ArrayList<>();
-        this.students = new ArrayList<>();
+        students = new ArrayList<>();
     }
 
     public ArrayList<Course> getCourses() {
-        return courses;
+        return this.courses;
     }
 
     public void addInstructor(String name) {
@@ -50,7 +50,7 @@ public class Department {
         return this.instructors;
     }
 
-    public Course getCourse(String courseid) {
+    public  Course getCourse(String courseid) {
         for (Course course : this.courses) {
             if (course.getCourseName().equals(courseid)) {
                 return course;
@@ -58,6 +58,13 @@ public class Department {
         }
         return null; // Course not found
     }
+
+    public void getCourseName(){
+        for (Course course : this.courses) {
+
+        }
+    }
+
 
     public static ArrayList<Student> getStudents() {
         return students;
