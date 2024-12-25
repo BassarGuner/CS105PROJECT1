@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
 
+//import static src.Department.students;
+
 public class StudentManagementSystem {
     public static void main(String[] args) {
         Department department = new Department("Computer Science");
@@ -59,12 +61,14 @@ class LoginHandler {
         JTextField nameField = new JTextField();
         JComboBox<String> roleBox = new JComboBox<>(new String[]{"Student", "Instructor"});
         JButton createButton = new JButton("Create");
+        JButton cancelButton = new JButton("Cancel");
 
         panel.add(new JLabel("Name:"));
         panel.add(nameField);
         panel.add(new JLabel("Role:"));
         panel.add(roleBox);
         panel.add(createButton);
+        panel.add(cancelButton);
 
         createButton.addActionListener(e -> {
             String name = nameField.getText();
@@ -81,6 +85,10 @@ class LoginHandler {
             frame.dispose();
             showLoginScreen();
         });
+        cancelButton.addActionListener(e -> {
+            frame.dispose();
+            new LoginHandler(department).showLoginScreen();
+        });
 
         frame.add(panel);
         frame.setVisible(true);
@@ -95,14 +103,18 @@ class LoginHandler {
         JPanel panel = new JPanel(new GridLayout(2, 1));
         JTextField emailField = new JTextField();
         JButton loginButton = new JButton("Login");
+        JButton logoutButton = new JButton("cancel");
 
         panel.add(new JLabel("Email:"));
         panel.add(emailField);
         panel.add(loginButton);
+        panel.add(logoutButton);
 
         loginButton.addActionListener(e -> {
             String email = emailField.getText();
-            for (Student student : department.getStudents()) {
+            // for (Student student : department.getStudents()) {}
+            for (int i = 0; i < Department.getStudents().size(); i++) {
+                Student student = Department.getStudents().get(i);
                 if (student.getEmail().equals(email)) {
                     frame.dispose();
                     new StudentDashboard(student, department);
@@ -110,6 +122,10 @@ class LoginHandler {
                 }
             }
             JOptionPane.showMessageDialog(frame, "Student not found.");
+        });
+        logoutButton.addActionListener(e -> {
+            frame.dispose();
+            new LoginHandler(department).showLoginScreen();
         });
 
         frame.add(panel);
@@ -125,10 +141,13 @@ class LoginHandler {
         JPanel panel = new JPanel(new GridLayout(2, 1));
         JTextField emailField = new JTextField();
         JButton loginButton = new JButton("Login");
+        JButton logoutButton  = new JButton("Cancel");
 
         panel.add(new JLabel("Email:"));
         panel.add(emailField);
         panel.add(loginButton);
+        panel.add(logoutButton);
+
 
         loginButton.addActionListener(e -> {
             String email = emailField.getText();
@@ -140,6 +159,10 @@ class LoginHandler {
                 }
             }
             JOptionPane.showMessageDialog(frame, "Instructor not found.");
+        });
+        logoutButton.addActionListener(e -> {
+            frame.dispose();
+            new LoginHandler(department).showLoginScreen();
         });
 
         frame.add(panel);
@@ -156,12 +179,14 @@ class LoginHandler {
         JTextField usernameField = new JTextField();
         JPasswordField passwordField = new JPasswordField();
         JButton loginButton = new JButton("Login");
+        JButton logoutButton = new JButton("Cancel");
 
         panel.add(new JLabel("Username:"));
         panel.add(usernameField);
         panel.add(new JLabel("Password:"));
         panel.add(passwordField);
         panel.add(loginButton);
+        panel.add(logoutButton);
 
         loginButton.addActionListener(e -> {
             String username = usernameField.getText();
@@ -172,6 +197,10 @@ class LoginHandler {
             } else {
                 JOptionPane.showMessageDialog(frame, "Invalid credentials.");
             }
+        });
+        logoutButton.addActionListener(e -> {
+            frame.dispose();
+            new LoginHandler(department).showLoginScreen();
         });
 
         frame.add(panel);
@@ -318,7 +347,7 @@ class DepartmentDashboard {
 
         listStudentsButton.addActionListener(e -> {
             StringBuilder students = new StringBuilder("Students:\n");
-            for (Student student : department.getStudents()) {
+            for (Student student : Department.getStudents()) {
                 students.append(student.toString()).append("\n");
             }
             JOptionPane.showMessageDialog(frame, students.toString());
