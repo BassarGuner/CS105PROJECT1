@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.util.*;
 
 //import static src.Department.students;
+import src.Course;
 
 public class StudentManagementSystem {
     public static void main(String[] args) {
@@ -361,12 +362,15 @@ class DepartmentDashboard {
             JOptionPane.showMessageDialog(frame, instructors.toString());
         });
 
+
         createCourseButton.addActionListener(e -> {
-            String courseId = JOptionPane.showInputDialog("Enter Course ID:");
-            String courseName = JOptionPane.showInputDialog("Enter Course Name:");
-            if (courseId != null && courseName != null) {
-                department.createCourse(courseId, courseName);
-                JOptionPane.showMessageDialog(frame, "Course created: " + courseName);
+            String createdCourseId = JOptionPane.showInputDialog("Enter Course ID:");
+            String createdCourseName = JOptionPane.showInputDialog("Enter Course Name:");
+            if (createdCourseId != null && createdCourseName != null) {
+                Course course = new Course(createdCourseId, createdCourseName);
+                //department.createCourse(createdCourseId, createdCourseName);
+
+                JOptionPane.showMessageDialog(frame, "Course created: " + createdCourseName);
             } else {
                 JOptionPane.showMessageDialog(frame, "Invalid input.");
             }
@@ -376,8 +380,10 @@ class DepartmentDashboard {
             String courseName = JOptionPane.showInputDialog("Enter Course Name:");
             String instructorName = JOptionPane.showInputDialog("Enter Instructor Name:");
             if (courseName != null && instructorName != null) {
-                department.assignInstructorToCourse(instructorName, courseName);
-                JOptionPane.showMessageDialog(frame, "Instructor " + instructorName + " assigned to course " + courseName);
+                if (Objects.equals(Course.getCoursename(), courseName)) { // equals instead of  Course.getCoursename() == courseName
+                    department.assignInstructorToCourse(instructorName, courseName);
+                    JOptionPane.showMessageDialog(frame, "Instructor " + instructorName + " assigned to course " + courseName);
+                }
             } else {
                 JOptionPane.showMessageDialog(frame, "Invalid input.");
             }
