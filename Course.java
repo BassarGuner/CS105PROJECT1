@@ -81,8 +81,9 @@ public class Course {
         // Prints course details
     @Override
     public String toString() {
-        return "Course ID = " + id + " Course Name = " + name + " Instructor = " + instructor;
-        + (instructor != null ? instructor.getName() : "None"); // koşul ? doğruysa_dönen_değer : yanlışsa_dönen_değer
+        return "Course ID [ID= " + id + " Course Name = " + name + " Instructor = " +
+                (instructor != null ? instructor.getName() : "None") + "]"; // koşul ? doğruysa_dönen_değer : yanlışsa_dönen_değer
+
     }
 }
 

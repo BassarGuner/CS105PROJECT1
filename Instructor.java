@@ -104,7 +104,6 @@ public class Instructor {
         @Override
         public String toString() {
             return "Instructor [Name = " + name + "E-mail=" + email + "ID =" + id + "]";
-
         }
     }
 
