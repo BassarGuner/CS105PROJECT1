@@ -6,7 +6,7 @@ import java.io.*;
 
 public class Department {
     private String name;
-    private ArrayList<Course> courses;
+    private static ArrayList<Course> courses;
     private ArrayList<Instructor> instructors;
     private static ArrayList<Student> students;
 
@@ -17,8 +17,8 @@ public class Department {
         students = new ArrayList<>();
     }
 
-    public ArrayList<Course> getCourses() {
-        return this.courses;
+    public static ArrayList<Course> getCourses() {
+        return courses;
     }
 
     public void addInstructor(String name) {
