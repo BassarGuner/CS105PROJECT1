@@ -8,17 +8,17 @@ public class Department {
     private String name;
     private ArrayList<Course> courses;
     private ArrayList<Instructor> instructors;
-    private ArrayList<Student> students;
+    private static ArrayList<Student> students;
 
     public Department(String name) {
         this.name = name;
         this.courses = new ArrayList<>();
         this.instructors = new ArrayList<>();
-        this.students = new ArrayList<>();
+        students = new ArrayList<>();
     }
 
     public ArrayList<Course> getCourses() {
-        return courses;
+        return this.courses;
     }
 
     public void addInstructor(String name) {
@@ -64,8 +64,15 @@ public class Department {
         return courseFound;
     }
 
-    public ArrayList<Student> getStudents() {
-        return this.students;
+    public void getCourseName(){
+        for (Course course : this.courses) {
+
+        }
+    }
+
+
+    public static ArrayList<Student> getStudents() {
+        return students;
     }
 
     public Instructor getInstructorByName(String instructorName) {

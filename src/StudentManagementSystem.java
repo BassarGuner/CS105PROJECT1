@@ -6,6 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
 
+//import static src.Department.students;
+import src.Course;
+
 public class StudentManagementSystem {
     public static void main(String[] args) {
         Department department = new Department("Computer Science");
@@ -59,12 +62,14 @@ class LoginHandler {
         JTextField nameField = new JTextField();
         JComboBox<String> roleBox = new JComboBox<>(new String[]{"Student", "Instructor"});
         JButton createButton = new JButton("Create");
+        JButton cancelButton = new JButton("Cancel");
 
         panel.add(new JLabel("Name:"));
         panel.add(nameField);
         panel.add(new JLabel("Role:"));
         panel.add(roleBox);
         panel.add(createButton);
+        panel.add(cancelButton);
 
         createButton.addActionListener(e -> {
             String name = nameField.getText();
@@ -81,6 +86,10 @@ class LoginHandler {
             frame.dispose();
             showLoginScreen();
         });
+        cancelButton.addActionListener(e -> {
+            frame.dispose();
+            new LoginHandler(department).showLoginScreen();
+        });
 
         frame.add(panel);
         frame.setVisible(true);
@@ -95,14 +104,18 @@ class LoginHandler {
         JPanel panel = new JPanel(new GridLayout(2, 1));
         JTextField emailField = new JTextField();
         JButton loginButton = new JButton("Login");
+        JButton logoutButton = new JButton("cancel");
 
         panel.add(new JLabel("Email:"));
         panel.add(emailField);
         panel.add(loginButton);
+        panel.add(logoutButton);
 
         loginButton.addActionListener(e -> {
             String email = emailField.getText();
-            for (Student student : department.getStudents()) {
+            // for (Student student : department.getStudents()) {}
+            for (int i = 0; i < Department.getStudents().size(); i++) {
+                Student student = Department.getStudents().get(i);
                 if (student.getEmail().equals(email)) {
                     frame.dispose();
                     new StudentDashboard(student, department);
@@ -110,6 +123,10 @@ class LoginHandler {
                 }
             }
             JOptionPane.showMessageDialog(frame, "Student not found.");
+        });
+        logoutButton.addActionListener(e -> {
+            frame.dispose();
+            new LoginHandler(department).showLoginScreen();
         });
 
         frame.add(panel);
@@ -125,10 +142,13 @@ class LoginHandler {
         JPanel panel = new JPanel(new GridLayout(2, 1));
         JTextField emailField = new JTextField();
         JButton loginButton = new JButton("Login");
+        JButton logoutButton  = new JButton("Cancel");
 
         panel.add(new JLabel("Email:"));
         panel.add(emailField);
         panel.add(loginButton);
+        panel.add(logoutButton);
+
 
         loginButton.addActionListener(e -> {
             String email = emailField.getText();
@@ -140,6 +160,10 @@ class LoginHandler {
                 }
             }
             JOptionPane.showMessageDialog(frame, "Instructor not found.");
+        });
+        logoutButton.addActionListener(e -> {
+            frame.dispose();
+            new LoginHandler(department).showLoginScreen();
         });
 
         frame.add(panel);
@@ -156,12 +180,14 @@ class LoginHandler {
         JTextField usernameField = new JTextField();
         JPasswordField passwordField = new JPasswordField();
         JButton loginButton = new JButton("Login");
+        JButton logoutButton = new JButton("Cancel");
 
         panel.add(new JLabel("Username:"));
         panel.add(usernameField);
         panel.add(new JLabel("Password:"));
         panel.add(passwordField);
         panel.add(loginButton);
+        panel.add(logoutButton);
 
         loginButton.addActionListener(e -> {
             String username = usernameField.getText();
@@ -172,6 +198,10 @@ class LoginHandler {
             } else {
                 JOptionPane.showMessageDialog(frame, "Invalid credentials.");
             }
+        });
+        logoutButton.addActionListener(e -> {
+            frame.dispose();
+            new LoginHandler(department).showLoginScreen();
         });
 
         frame.add(panel);
@@ -324,7 +354,7 @@ class DepartmentDashboard {
 
         listStudentsButton.addActionListener(e -> {
             StringBuilder students = new StringBuilder("Students:\n");
-            for (Student student : department.getStudents()) {
+            for (Student student : Department.getStudents()) {
                 students.append(student.toString()).append("\n");
             }
             JOptionPane.showMessageDialog(frame, students.toString());
@@ -338,12 +368,15 @@ class DepartmentDashboard {
             JOptionPane.showMessageDialog(frame, instructors.toString());
         });
 
+
         createCourseButton.addActionListener(e -> {
-            String courseId = JOptionPane.showInputDialog("Enter Course ID:");
-            String courseName = JOptionPane.showInputDialog("Enter Course Name:");
-            if (courseId != null && courseName != null) {
-                department.createCourse(courseId, courseName);
-                JOptionPane.showMessageDialog(frame, "Course created: " + courseName);
+            String createdCourseId = JOptionPane.showInputDialog("Enter Course ID:");
+            String createdCourseName = JOptionPane.showInputDialog("Enter Course Name:");
+            if (createdCourseId != null && createdCourseName != null) {
+                Course course = new Course(createdCourseId, createdCourseName);
+                //department.createCourse(createdCourseId, createdCourseName);
+
+                JOptionPane.showMessageDialog(frame, "Course created: " + createdCourseName);
             } else {
                 JOptionPane.showMessageDialog(frame, "Invalid input.");
             }
@@ -353,8 +386,10 @@ class DepartmentDashboard {
             String courseName = JOptionPane.showInputDialog("Enter Course Name:");
             String instructorName = JOptionPane.showInputDialog("Enter Instructor Name:");
             if (courseName != null && instructorName != null) {
-                department.assignInstructorToCourse(instructorName, courseName);
-                JOptionPane.showMessageDialog(frame, "Instructor " + instructorName + " assigned to course " + courseName);
+                if (Objects.equals(Course.getCoursename(), courseName)) { // equals instead of  Course.getCoursename() == courseName
+                    department.assignInstructorToCourse(instructorName, courseName);
+                    JOptionPane.showMessageDialog(frame, "Instructor " + instructorName + " assigned to course " + courseName);
+                }
             } else {
                 JOptionPane.showMessageDialog(frame, "Invalid input.");
             }

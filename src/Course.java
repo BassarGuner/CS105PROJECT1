@@ -3,15 +3,20 @@ package src;
 import java.util.ArrayList;
 
 public class Course {
-    private String coursename;
+    private static String coursename;
     private String courseid;
     private Instructor instructor;
     private ArrayList<Student> students;
 
     public Course(String courseid, String coursename) {
-        this.coursename = coursename;
+        coursename = coursename;
         this.courseid = courseid;
         this.students = new ArrayList<>();
+        // Department.getCourses().add(this); if getCourses static
+    }
+
+    public static String getCoursename() {
+        return coursename;
     }
 
     public void addStudent(Student student) {
