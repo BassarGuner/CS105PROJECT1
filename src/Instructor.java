@@ -17,16 +17,16 @@ public class Instructor extends Person {
     protected void initEmail() {
         String[] parts = getName().toLowerCase().split(" ");
         if (parts.length < 2) {
-            System.out.println("Name must contain both first and last name for email generation.");
+            JOptionPane.showMessageDialog(null,"Name must contain both first and last name for email generation.");
             setEmail(null);
         } else{
-        setEmail(parts[0] + "." + parts[parts.length - 1] + "@ozyegin.edu.tr");
+            setEmail(parts[0] + "." + parts[parts.length - 1] + "@ozyegin.edu.tr");
         }
     }
 
     public void assignCourse(String courseId) {
         assignedCourses.add(courseId);
-        System.out.println("Instructor assigned to course: " + courseId);
+        JOptionPane.showMessageDialog(null,"Instructor assigned to course: " + courseId);
     }
 
     public void registerExamGrades(String courseId, String examId, List<Student> students) {
@@ -35,15 +35,15 @@ public class Instructor extends Person {
             int grade = rand.nextInt(101);
             student.addGrade(new GradeItem(courseId, examId, grade));
         }
-        System.out.println("Grades registered for exam " + examId + " in course " + courseId);
+        JOptionPane.showMessageDialog(null,"Grades registered for exam " + examId + " in course " + courseId);
     }
 
     public void listGradesForExam(String courseId, String examId, List<Student> students) {
-        System.out.println("Grades for Course: " + courseId + ", Exam: " + examId);
+        JOptionPane.showMessageDialog(null,"Grades for Course: " + courseId + ", Exam: " + examId);
         for (Student student : students) {
             GradeItem grade = student.getGradeItem(courseId, examId);
             if (grade != null) {
-                System.out.println(student.getName() + ": " + grade.getGrade());
+                JOptionPane.showMessageDialog(null,student.getName() + ": " + grade.getGrade());
             }
         }
     }
@@ -58,7 +58,7 @@ public class Instructor extends Person {
                 count++;
             }
         }
-            
+
         if (count == 0) {
             JOptionPane.showMessageDialog(null, "No grades found for Course: " + courseId + ", Exam: " + examId);
         } else {
@@ -66,6 +66,7 @@ public class Instructor extends Person {
             JOptionPane.showMessageDialog(null,"Average grade for Course: " + courseId + ", Exam: " + examId + " is " + average);
         }
     }
+
 
 
 }
