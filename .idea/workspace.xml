@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5ccff54b-67d0-4dd0-a44f-1ddb63c74392" name="Changes" comment="azcık düzeltildi" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;mardaguler&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/BassarGuner/CS105PROJECT1.git&quot;,
+    &quot;accountId&quot;: &quot;8296d21f-3161-4a98-a323-c55a068093bc&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2q0ywTQBPOv9AAoTL8KYcojdVFm" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.Main.executor": "Run",
+    "Application.StudentManagementSystem.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Arda",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Marda/IdeaProjects/CS105PROJECT1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/Marda/IdeaProjects/CS105PROJECT1/src/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Marda\IdeaProjects\CS105PROJECT1\src" />
+      <recent name="C:\Users\Marda\IdeaProjects\CS105PROJECT1" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5ccff54b-67d0-4dd0-a44f-1ddb63c74392" name="Changes" comment="" />
+      <created>1733814025824</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1733814025824</updated>
+      <workItem from="1733814026946" duration="2268000" />
+      <workItem from="1733908901513" duration="492000" />
+      <workItem from="1734371735056" duration="6230000" />
+      <workItem from="1734417067271" duration="877000" />
+      <workItem from="1734468885823" duration="615000" />
+      <workItem from="1734598489140" duration="258000" />
+      <workItem from="1735075600844" duration="243000" />
+      <workItem from="1735142339583" duration="4872000" />
+      <workItem from="1735228902470" duration="7449000" />
+      <workItem from="1735237051938" duration="524000" />
+    </task>
+    <task id="LOCAL-00001" summary="ekliom">
+      <option name="closed" value="true" />
+      <created>1733814565433</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1733814565433</updated>
+    </task>
+    <task id="LOCAL-00002" summary="ekliom gene">
+      <option name="closed" value="true" />
+      <created>1733815264383</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1733815264384</updated>
+    </task>
+    <task id="LOCAL-00003" summary="ekliom gene gene">
+      <option name="closed" value="true" />
+      <created>1733815748900</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1733815748900</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Kendi barnchım ekliom">
+      <option name="closed" value="true" />
+      <created>1734372114213</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1734372114213</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Kendi barnchım ekliom">
+      <option name="closed" value="true" />
+      <created>1734374029099</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1734374029099</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Kendi barnchım ekliom">
+      <option name="closed" value="true" />
+      <created>1734374113740</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1734374113740</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Kendi barnchım ekliom">
+      <option name="closed" value="true" />
+      <created>1734374339345</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1734374339345</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Debugged">
+      <option name="closed" value="true" />
+      <created>1734598539935</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1734598539935</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Debugged">
+      <option name="closed" value="true" />
+      <created>1735075730990</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1735075730990</updated>
+    </task>
+    <task id="LOCAL-00010" summary="azcık düzeltildi">
+      <option name="closed" value="true" />
+      <created>1735145243935</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1735145243935</updated>
+    </task>
+    <task id="LOCAL-00011" summary="azcık düzeltildi">
+      <option name="closed" value="true" />
+      <created>1735147222323</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1735147222323</updated>
+    </task>
+    <task id="LOCAL-00012" summary="azcık düzeltildi">
+      <option name="closed" value="true" />
+      <created>1735147247598</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1735147247598</updated>
+    </task>
+    <task id="LOCAL-00013" summary="azcık düzeltildi">
+      <option name="closed" value="true" />
+      <created>1735232072914</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1735232072914</updated>
+    </task>
+    <task id="LOCAL-00014" summary="azcık düzeltildi">
+      <option name="closed" value="true" />
+      <created>1735236971122</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1735236971122</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ekliom" />
+    <MESSAGE value="ekliom gene" />
+    <MESSAGE value="ekliom gene gene" />
+    <MESSAGE value="Kendi barnchım ekliom" />
+    <MESSAGE value="Debugged" />
+    <MESSAGE value="azcık düzeltildi" />
+    <option name="LAST_COMMIT_MESSAGE" value="azcık düzeltildi" />
+  </component>
+</project>
