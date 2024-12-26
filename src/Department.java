@@ -1,6 +1,8 @@
 package src;
 
 import java.util.ArrayList;
+import java.util.*;
+import java.io.*;
 
 public class Department {
     private String name;
@@ -50,13 +52,16 @@ public class Department {
         return this.instructors;
     }
 
+    
     public Course getCourse(String courseid) {
-        for (Course course : this.courses) {
-            if (course.getCourseName().equals(courseid)) {
-                return course;
+        Course courseFound = null;
+        for(int course = 0; course < this.courses.size(); course++) {
+            if(this.courses.get(course).getCourseName().equals(courseid)){
+                courseFound = this.courses.get(course);
+                break;
             }
         }
-        return null; // Course not found
+        return courseFound;
     }
 
     public ArrayList<Student> getStudents() {
