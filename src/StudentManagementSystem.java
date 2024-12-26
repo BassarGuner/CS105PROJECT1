@@ -2,9 +2,6 @@ package src;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.*;
 
 public class StudentManagementSystem {
     public static void main(String[] args) {
@@ -59,12 +56,14 @@ class LoginHandler {
         JTextField nameField = new JTextField();
         JComboBox<String> roleBox = new JComboBox<>(new String[]{"Student", "Instructor"});
         JButton createButton = new JButton("Create");
+        JButton backButton = new JButton("Back");
 
         panel.add(new JLabel("Name:"));
         panel.add(nameField);
         panel.add(new JLabel("Role:"));
         panel.add(roleBox);
         panel.add(createButton);
+        panel.add(backButton);
 
         createButton.addActionListener(e -> {
             String name = nameField.getText();
@@ -81,6 +80,10 @@ class LoginHandler {
             frame.dispose();
             showLoginScreen();
         });
+        backButton.addActionListener(e -> {
+            frame.dispose();
+            new LoginHandler(department).showLoginScreen();
+        });
 
         frame.add(panel);
         frame.setVisible(true);
@@ -95,10 +98,13 @@ class LoginHandler {
         JPanel panel = new JPanel(new GridLayout(2, 1));
         JTextField emailField = new JTextField();
         JButton loginButton = new JButton("Login");
+        JButton backButton = new JButton("Back");
 
         panel.add(new JLabel("Email:"));
         panel.add(emailField);
         panel.add(loginButton);
+        panel.add(backButton);
+
 
         loginButton.addActionListener(e -> {
             String email = emailField.getText();
@@ -110,6 +116,10 @@ class LoginHandler {
                 }
             }
             JOptionPane.showMessageDialog(frame, "Student not found.");
+        });
+        backButton.addActionListener(e -> {
+            frame.dispose();
+            new LoginHandler(department).showLoginScreen();
         });
 
         frame.add(panel);
@@ -125,10 +135,12 @@ class LoginHandler {
         JPanel panel = new JPanel(new GridLayout(2, 1));
         JTextField emailField = new JTextField();
         JButton loginButton = new JButton("Login");
+        JButton backButton = new JButton("Back");
 
         panel.add(new JLabel("Email:"));
         panel.add(emailField);
         panel.add(loginButton);
+        panel.add(backButton);
 
         loginButton.addActionListener(e -> {
             String email = emailField.getText();
@@ -140,6 +152,10 @@ class LoginHandler {
                 }
             }
             JOptionPane.showMessageDialog(frame, "Instructor not found.");
+        });
+        backButton.addActionListener(e -> {
+            frame.dispose();
+            new LoginHandler(department).showLoginScreen();
         });
 
         frame.add(panel);
@@ -156,12 +172,14 @@ class LoginHandler {
         JTextField usernameField = new JTextField();
         JPasswordField passwordField = new JPasswordField();
         JButton loginButton = new JButton("Login");
+        JButton backButton = new JButton("Back");
 
         panel.add(new JLabel("Username:"));
         panel.add(usernameField);
         panel.add(new JLabel("Password:"));
         panel.add(passwordField);
         panel.add(loginButton);
+        panel.add(backButton);
 
         loginButton.addActionListener(e -> {
             String username = usernameField.getText();
@@ -172,6 +190,10 @@ class LoginHandler {
             } else {
                 JOptionPane.showMessageDialog(frame, "Invalid credentials.");
             }
+        });
+        backButton.addActionListener(e -> {
+            frame.dispose();
+            new LoginHandler(department).showLoginScreen();
         });
 
         frame.add(panel);
