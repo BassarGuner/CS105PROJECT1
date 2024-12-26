@@ -271,17 +271,19 @@ class InstructorDashboard {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 400);
 
-        JPanel panel = new JPanel(new GridLayout(6, 1));
+        JPanel panel = new JPanel(new GridLayout(7, 1));
         panel.add(new JLabel("Welcome, " + instructor.getName()));
         panel.add(new JLabel("ID: " + instructor.getId()));
         panel.add(new JLabel("Email: " + instructor.getEmail()));
 
         JButton registerExamGradesButton = new JButton("Register Exam Grades");
         JButton listGradesButton = new JButton("List Grades for Exam");
+        JButton averageGradeButton = new JButton("Print Average Grade for Exam");
         JButton logoutButton = new JButton("Logout");
 
         panel.add(registerExamGradesButton);
         panel.add(listGradesButton);
+        panel.add(averageGradeButton);
         panel.add(logoutButton);
 
         registerExamGradesButton.addActionListener(e -> {
@@ -300,6 +302,16 @@ class InstructorDashboard {
             Course course = department.getCourse(courseId);
             if (course != null) {
                 instructor.listGradesForExam(courseId, examId, course.getStudents());
+            } else {
+                JOptionPane.showMessageDialog(frame, "Course not found.");
+            }
+        });
+        averageGradeButton.addActionListener(e -> {
+            String courseId = JOptionPane.showInputDialog("Enter Course ID:");
+            String examId = JOptionPane.showInputDialog("Enter Exam ID:");
+            Course course = department.getCourse(courseId);
+            if (course != null) {
+                instructor.printAverageGradeForExam(courseId, examId, course.getStudents());
             } else {
                 JOptionPane.showMessageDialog(frame, "Course not found.");
             }
