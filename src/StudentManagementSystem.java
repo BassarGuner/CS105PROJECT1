@@ -215,7 +215,7 @@ class StudentDashboard {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 400);
 
-        JPanel panel = new JPanel(new GridLayout(6, 1));
+        JPanel panel = new JPanel(new GridLayout(8, 1));
         panel.add(new JLabel("Welcome, " + student.getName()));
         panel.add(new JLabel("ID: " + student.getId()));
         panel.add(new JLabel("Email: " + student.getEmail()));
@@ -223,11 +223,13 @@ class StudentDashboard {
         JButton registerCourseButton = new JButton("Register to Course");
         JButton dropCourseButton = new JButton("Drop Course");
         JButton listGradesButton = new JButton("List Grades");
+        JButton viewSpecificGradeButton = new JButton("View Specific Grade");
         JButton logoutButton = new JButton("Logout");
 
         panel.add(registerCourseButton);
         panel.add(dropCourseButton);
         panel.add(listGradesButton);
+        panel.add(viewSpecificGradeButton);
         panel.add(logoutButton);
 
         registerCourseButton.addActionListener(e -> {
@@ -256,6 +258,11 @@ class StudentDashboard {
                 grades.append(grade.toString()).append("\n");
             }
             JOptionPane.showMessageDialog(frame, grades.toString());
+        });
+        viewSpecificGradeButton.addActionListener(e -> {
+            String courseId = JOptionPane.showInputDialog(frame, "Enter Course ID:");
+            String examId = JOptionPane.showInputDialog(frame, "Enter Exam ID:");
+            student.getGradeItem(courseId, examId);
         });
         logoutButton.addActionListener(e -> {
             frame.dispose();
@@ -295,7 +302,6 @@ class InstructorDashboard {
                 JOptionPane.showMessageDialog(frame, "Course not found.");
             }
         });
-
         listGradesButton.addActionListener(e -> {
             String courseId = JOptionPane.showInputDialog("Enter Course ID:");
             String examId = JOptionPane.showInputDialog("Enter Exam ID:");
