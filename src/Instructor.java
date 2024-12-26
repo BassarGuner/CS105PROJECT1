@@ -1,5 +1,7 @@
 package src;
 
+import javax.swing.JOptionPane;
+
 import java.util.*;
 
 public class Instructor extends Person {
@@ -45,4 +47,25 @@ public class Instructor extends Person {
             }
         }
     }
+    public void printAverageGradeForExam(String courseId, String examId, List<Student> students) {
+        double totalGrades = 0;
+        int count = 0;
+
+        for (Student student : students) {
+            GradeItem grade = student.getGradeItem(courseId, examId);
+            if (grade != null) {
+                totalGrades += grade.getGrade();
+                count++;
+            }
+        }
+            
+        if (count == 0) {
+            JOptionPane.showMessageDialog(null, "No grades found for Course: " + courseId + ", Exam: " + examId);
+        } else {
+            double average = totalGrades / count;
+            JOptionPane.showMessageDialog(null,"Average grade for Course: " + courseId + ", Exam: " + examId + " is " + average);
+        }
+    }
+
+
 }
