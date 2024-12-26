@@ -81,8 +81,8 @@ public class Department {
 
     public void listInstructors(){
         int counter = 0;
-        for(int instructor = 0; instructor < this.instructors.size(); instructor++){
-            System.out.println(instructors.get(instructor).getName());
+        for (Instructor value : this.instructors) {
+            System.out.println(value.getName());
             counter++;
         }
         System.out.println("Total number of instructors: " + counter);
@@ -90,7 +90,7 @@ public class Department {
 
     public void listCourses(){
         int counter = 0;
-        for(int course = 0; course < this.courses.size(); course++){
+        for(int course = 0; course < courses.size(); course++){
             System.out.println(Course.getCoursename());
             counter++;
         }
@@ -99,8 +99,8 @@ public class Department {
 
     public void listStudents(){
         int counter = 0;
-        for(int student = 0; student< this.students.size(); student++){
-            System.out.println(students.get(student).getName());
+        for (Student value : this.students) {
+            System.out.println(value.getName());
             counter++;
         }
         System.out.println("Total students: " + counter);

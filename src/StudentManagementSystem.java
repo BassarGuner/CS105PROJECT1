@@ -340,7 +340,7 @@ class DepartmentDashboard {
 
         listCoursesButton.addActionListener(e -> {
             StringBuilder courses = new StringBuilder("Courses:\n");
-            for (Course course : department.getCourses()) {
+            for (Course course : Department.getCourses()) {
                 courses.append(course.toString()).append("\n");
             }
             JOptionPane.showMessageDialog(frame, courses.toString());
