@@ -6,13 +6,13 @@ public class Course {
     private static String coursename;
     private String courseid;
     private Instructor instructor;
-    private ArrayList<Student> students;
+    private static ArrayList<Student> students;
 
     public Course(String courseid, String coursename) {
         coursename = coursename;
         this.courseid = courseid;
         this.students = new ArrayList<>();
-        // Department.getCourses().add(this); if getCourses static
+        Department.getCourses().add(this); // if getCourses static
     }
 
     public static String getCoursename() {
@@ -44,7 +44,7 @@ public class Course {
         return instructor;
     }
 
-    public ArrayList<Student> getStudents() {
+    public static ArrayList<Student> getStudents() {
         return students;
     }
 
