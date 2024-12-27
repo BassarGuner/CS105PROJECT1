@@ -1,6 +1,7 @@
 package src;
 
 import java.util.*;
+import javax.swing.JOptionPane;
 
 
 public class Student extends Person {
@@ -18,7 +19,7 @@ public class Student extends Person {
     protected void initEmail() {
         String[] parts = getName().toLowerCase().split(" ");
         if (parts.length < 2) {
-            System.out.println("Name must contain both first and last name for email generation.");
+            JOptionPane.showMessageDialog(null,"Name must contain both first and last name for email generation.");
             setEmail(null);
         } else{
         setEmail(parts[0] + "." + parts[parts.length - 1] + "@ozu.edu.tr");
@@ -27,18 +28,18 @@ public class Student extends Person {
 
     public void registerToCourse(Course course) {
         if (course.getInstructor() != null) {                       
-            enrolledCourses.put(course.getId(), course);               
+            enrolledCourses.put(course.getCourseId(), course);               
             course.addStudent(this);
-            System.out.println("Registered to course: " + course.getCourseName()); 
+            JOptionPane.showMessageDialog(null,"Registered to course: " + course.getCourseName()); 
         } else {
-            System.out.println("Cannot register, no instructor assigned to course.");
+            JOptionPane.showMessageDialog(null,"Cannot register, no instructor assigned to course.");
         }
     }
 
     public void dropCourse(Course course) {
-        if (enrolledCourses.remove(course.getId()) != null) {
+        if (enrolledCourses.remove(course.getCourseId()) != null) {
             course.removeStudent(this);
-            System.out.println("Dropped course: " + course.getCourseName());
+            JOptionPane.showMessageDialog(null,"Dropped course: " + course.getCourseName());
         }
     }
 
