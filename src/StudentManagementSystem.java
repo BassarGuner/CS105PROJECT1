@@ -6,9 +6,6 @@ import java.awt.*;
 public class StudentManagementSystem {
     public static void main(String[] args) {
         Department department = new Department("Computer Science");
-        department.addInstructor("John Doe");
-        department.createCourse("CS101", "Introduction to Programming");
-
         LoginHandler loginHandler = new LoginHandler(department);
         loginHandler.showLoginScreen();
     }
@@ -43,6 +40,7 @@ class LoginHandler {
         loginDepartmentButton.addActionListener(e -> showDepartmentLogin(frame));
 
         frame.add(panel);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
@@ -70,11 +68,11 @@ class LoginHandler {
             String role = (String) roleBox.getSelectedItem();
             if (role.equals("Student")) {
                 Student student = new Student(name);
-                department.addStudent(student.getName());
+                department.addStudent(student);
                 JOptionPane.showMessageDialog(frame, "Student account created: " + student.getEmail());
             } else {
                 Instructor instructor = new Instructor(name);
-                department.addInstructor(instructor.getName());
+                department.addInstructor(instructor);
                 JOptionPane.showMessageDialog(frame, "Instructor account created: " + instructor.getEmail());
             }
             frame.dispose();
@@ -86,6 +84,7 @@ class LoginHandler {
         });
 
         frame.add(panel);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
@@ -123,6 +122,7 @@ class LoginHandler {
         });
 
         frame.add(panel);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
@@ -159,6 +159,7 @@ class LoginHandler {
         });
 
         frame.add(panel);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
@@ -197,6 +198,7 @@ class LoginHandler {
         });
 
         frame.add(panel);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 }
@@ -227,7 +229,7 @@ class StudentDashboard {
         registerCourseButton.addActionListener(e -> {
             String courseId = JOptionPane.showInputDialog("Enter Course ID:");
             Course course = department.getCourse(courseId);
-            if (course != null) {
+            if (course != null && !courseId.trim().isEmpty()) {
                 student.registerToCourse(course);
             } else {
                 JOptionPane.showMessageDialog(frame, "Course not found.");
@@ -254,13 +256,19 @@ class StudentDashboard {
         viewSpecificGradeButton.addActionListener(e -> {
             String courseId = JOptionPane.showInputDialog(frame, "Enter Course ID:");
             String examId = JOptionPane.showInputDialog(frame, "Enter Exam ID:");
-            student.getGradeItem(courseId, examId);
+            GradeItem gradeItem = student.getGradeItem(courseId, examId);
+            if (gradeItem != null) {
+                JOptionPane.showMessageDialog(frame, gradeItem.toString());
+            } else {
+                JOptionPane.showMessageDialog(frame, "Grade not found.");
+            }
         });
         logoutButton.addActionListener(e -> {
             frame.dispose();
             new LoginHandler(department).showLoginScreen();
         });
         frame.add(panel);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 }
@@ -290,7 +298,7 @@ class InstructorDashboard {
             String courseId = JOptionPane.showInputDialog("Enter Course ID:");
             String examId = JOptionPane.showInputDialog("Enter Exam ID:");
             Course course = department.getCourse(courseId);
-            if (course != null) {
+            if (course != null && !courseId.trim().isEmpty() && !examId.trim().isEmpty()) {
                 instructor.registerExamGrades(courseId, examId, course.getStudents());
             } else {
                 JOptionPane.showMessageDialog(frame, "Course not found.");
@@ -310,10 +318,13 @@ class InstructorDashboard {
             String courseId = JOptionPane.showInputDialog("Enter Course ID:");
             String examId = JOptionPane.showInputDialog("Enter Exam ID:");
             Course course = department.getCourse(courseId);
-            if (course != null) {
+            if (course != null && !courseId.trim().isEmpty() && !examId.trim().isEmpty()) {
                 instructor.printAverageGradeForExam(courseId, examId, course.getStudents());
-            } else {
+            } else if (courseId.trim().isEmpty() || examId.trim().isEmpty()) {
+                JOptionPane.showMessageDialog(frame, "Invalid input.");
+            } else if (course == null) {
                 JOptionPane.showMessageDialog(frame, "Course not found.");
+                
             }
         });
         logoutButton.addActionListener(e -> {
@@ -321,6 +332,7 @@ class InstructorDashboard {
             new LoginHandler(department).showLoginScreen();
         });
         frame.add(panel);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 }
@@ -384,11 +396,15 @@ class DepartmentDashboard {
         });
 
         assignInstructorButton.addActionListener(e -> {
-            String courseName = JOptionPane.showInputDialog("Enter Course Name:");
+            String courseId = JOptionPane.showInputDialog("Enter Course ID:");
             String instructorName = JOptionPane.showInputDialog("Enter Instructor Name:");
-            if (courseName != null && instructorName != null) {
-                department.assignInstructorToCourse(instructorName, courseName);
-                JOptionPane.showMessageDialog(frame, "Instructor " + instructorName + " assigned to course " + courseName);
+            if (department.getInstructorByName(instructorName) != null && department.getCourse(courseId) != null) {
+                department.assignInstructorToCourse(instructorName, courseId);
+                JOptionPane.showMessageDialog(frame, "Instructor " + instructorName + " assigned to course " + courseId);
+            } else if (department.getInstructorByName(instructorName) == null) {
+                JOptionPane.showMessageDialog(frame, "Instructor not found.");
+            } else if (department.getCourse(courseId) == null) {
+                JOptionPane.showMessageDialog(frame, "Course not found.");
             } else {
                 JOptionPane.showMessageDialog(frame, "Invalid input.");
             }
@@ -398,6 +414,7 @@ class DepartmentDashboard {
             new LoginHandler(department).showLoginScreen();
         });
         frame.add(panel);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 }
