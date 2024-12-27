@@ -29,5 +29,4 @@ public class GradeItem {
     public String toString(){
         return "Course ID : " + courseId + "\n" + "Exam ID : " + examId + "\n" + "Grade : " + grade;
     }
-
-} 
+}
