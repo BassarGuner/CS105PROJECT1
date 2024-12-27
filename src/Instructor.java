@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 import java.util.*;
 
 public class Instructor extends Person {
-    private List<String> assignedCourses;
+    private List<Course> assignedCourses;
 
     public Instructor(String name) {
         super(name);
@@ -20,13 +20,12 @@ public class Instructor extends Person {
             JOptionPane.showMessageDialog(null,"Name must contain both first and last name for email generation.");
             setEmail(null);
         } else{
-            setEmail(parts[0] + "." + parts[parts.length - 1] + "@ozyegin.edu.tr");
+        setEmail(parts[0] + "." + parts[parts.length - 1] + "@ozyegin.edu.tr");
         }
     }
 
-    public void assignCourse(String courseId) {
-        assignedCourses.add(courseId);
-        JOptionPane.showMessageDialog(null,"Instructor assigned to course: " + courseId);
+    public List<Course> getAssignedCourses() {
+        return assignedCourses;
     }
 
     public void registerExamGrades(String courseId, String examId, List<Student> students) {
@@ -58,7 +57,7 @@ public class Instructor extends Person {
                 count++;
             }
         }
-
+            
         if (count == 0) {
             JOptionPane.showMessageDialog(null, "No grades found for Course: " + courseId + ", Exam: " + examId);
         } else {
@@ -66,7 +65,12 @@ public class Instructor extends Person {
             JOptionPane.showMessageDialog(null,"Average grade for Course: " + courseId + ", Exam: " + examId + " is " + average);
         }
     }
-
-
-
+    public void assignCourse(Course course) {
+        if (course.getInstructor() == null) {
+            course.setInstructor(this);
+            assignedCourses.add(course);
+        } else {
+            JOptionPane.showMessageDialog(null, "This course already has an instructor assigned.");
+        }
+    }
 }
