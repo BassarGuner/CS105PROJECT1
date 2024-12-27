@@ -2,6 +2,8 @@ package src;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class Course {
     private String coursename;
     private String courseid;
@@ -16,10 +18,10 @@ public class Course {
 
     public void addStudent(Student student) {
         if (this.instructor == null) {
-            System.out.println("No instructor assigned. Enrollment is denied for course: " + this.coursename);
+            JOptionPane.showMessageDialog(null,"No instructor assigned. Enrollment is denied for course: " + this.coursename);
         } else {
             students.add(student);
-            System.out.println("Student " + student.getName() + " successfully enrolled in " + this.coursename);
+            JOptionPane.showMessageDialog(null,"Student " + student.getName() + " successfully enrolled in " + this.coursename);
         }
     }
 
@@ -27,7 +29,7 @@ public class Course {
         students.removeIf(student -> student.equals(wantedStudent));
     }
 
-    public String getId() {
+    public String getCourseId() {
         return courseid;
     }
 
@@ -44,7 +46,12 @@ public class Course {
     }
 
     public void setInstructor(Instructor instructor) {
-        this.instructor = instructor;
+        if (this.instructor != null) {
+            JOptionPane.showMessageDialog(null, "This course already has an instructor assigned.");
+        } else {
+            this.instructor = instructor;
+            JOptionPane.showMessageDialog(null, "Instructor " + instructor.getName() + " assigned to course: " + this.coursename);
+        }
     }
 
     public void listStudents() {
@@ -52,7 +59,6 @@ public class Course {
             System.out.println(student.getName());
         }
     }
-
     public String toString() {
         return "\nName: " + coursename + "\nID: " + courseid;
     }
